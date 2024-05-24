@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: examen-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: examen
+  template:
+    metadata:
+      labels:
+        app: examen
+    spec:
+      containers:
+      - name: examen-container
+        image: todo:latest
+        ports:
+        - containerPort: 3000
